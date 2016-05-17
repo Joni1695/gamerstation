@@ -61,7 +61,7 @@
           <?php echo $products[$i]->title; ?>
         </td>
         <td>
-          <?php echo $products[$i]->description; ?>
+          <?php $products[$i]->description = (strlen($products[$i]->description) > 100) ? substr($products[$i]->description,0,100).'...' : $products[$i]->description; echo $products[$i]->description; ?>
         </td>
         <td>
           <?php echo $products[$i]->price; ?>

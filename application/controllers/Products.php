@@ -15,9 +15,9 @@ class Products extends CI_Controller{
   public function details($id){
     $product=$this->Product_model->get_game_data($id);
     $categories=$this->Product_model->get_gamecategories($id);
-    foreach($categories as $c) $c->categories_id=$this->Product_model->get_categoryname($c->categories_id);
+    foreach($categories as $c) $c->categories_name=$this->Product_model->get_categoryname($c->categories_id);
     $platform=$this->Product_model->get_gameplatforms($id);
-    foreach($platform as $c) $c->platform_id=$this->Product_model->get_platformname($c->platform_id);
+    foreach($platform as $c) $c->platform_name=$this->Product_model->get_platformname($c->platform_id);
     $reviews=$this->Product_model->get_reviews($product[0]->id);
     $data=array(
       'mainContent' => 'details',

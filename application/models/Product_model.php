@@ -36,7 +36,7 @@
       else $this->db->where('fk_product_id',$id)->where('fk_user_id',$this->session->userdata('user_id'))->update('user_ratings',$data);
     }
     public function get_first_products(){
-	  return $this->db->select('products.id,products.title,products.price,products.gameImagePath')->select_avg('user_ratings.rating')
+	  return $this->db->limit(8)->select('products.id,products.title,products.price,products.gameImagePath')->select_avg('user_ratings.rating')
     ->from('products')
     ->join('user_ratings','user_ratings.fk_product_id=products.id','left')->group_by('products.id')
     ->order_by('created_at','desc')->get()->result();
@@ -329,7 +329,7 @@
     }
     public function createGame(){
       $data=array(
-        'title' => htmlentities($this->input->post('name')),
+        'title' => str_replace('\'','`',htmlentities($this->input->post('name'))),
   			'description' => htmlentities($this->input->post('desc')),
   			'trailer_video' 	=> htmlentities($this->input->post('trailer')),
   			'price' => htmlentities($this->input->post('price')),
@@ -355,12 +355,10 @@
           $error=true;
         }
         if($error==true) return false;
-
         $this->db->insert('products',$data);
 
         $CI=get_instance();
-        $id=$this->db->select('*')->from('products')->where('title',$this->input->post('name'))
-        ->where('description',$this->input->post('desc'))->get()->result();
+        $id=$this->db->query('SELECT * FROM products p WHERE p.title=\''.$data['title'].'\'')->result();
         foreach($this->input->post('categories') as $category){
           $category=$CI->Product_model->get_category_id($category);
           $categoryData=array(

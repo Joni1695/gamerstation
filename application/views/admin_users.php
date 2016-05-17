@@ -90,6 +90,28 @@
       document.location.href="<?php echo base_url().'adminpanel/users'; ?>";
     });
   });
+  var gamearray=[
+    <?php foreach($users as $a): ?>
+    {
+      value:"<?php echo $a->id;?>",
+      label:"<?php echo $a->username; ?>"
+    },
+    <?php endforeach; ?>
+  ];
+  $('#search').autocomplete({
+    source : gamearray,
+    select : function(event,ui){
+      $.post('<?php echo base_url(); ?>adminService/getUserData',{user_id: ui.item.value},function(data){
+        var response=$.parseJSON(data);
+        $('.username').text(response.user[0].username);
+        if(response.user[0].banned=='N') $('.ban').text('Ban');
+        else $('.ban').text('Unban');
+        $('.ban').attr('data-id',ui.item.value);
+        $('.changestatus').attr('data-id',ui.item.value);
+      });
+      $('#UserModal').modal('toggle');
+    }
+  });
 </script>
 </body>
 </html>

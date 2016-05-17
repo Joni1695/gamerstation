@@ -51,7 +51,7 @@
                             <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
                         </ul>
                     </li>
-                    <?php if($active=='admin_products' || $active=='admin_users' || $active=='admin_orders' || $active=='admin_threads') :?>
+                    <?php if($active=='admin_products' || $active=='admin_users') :?>
                       <li>
                           <form class="navbar-search">
                               <input type="text" id="search" placeholder="Search" class="form-control">

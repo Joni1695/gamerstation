@@ -36,9 +36,9 @@
            </div>
                    <div class="desc1 span_3_of_2">
                      <p class="movie_option"><strong>Title: </strong><?php echo $product[0]->title; ?></p>
-                     <p class="movie_option"><strong>Category: </strong><?php for($i=0;$i<sizeof($categories);$i++):?><a href="kari"><?php echo $categories[$i]->categories_id; if($i!=sizeof($categories)-1) echo ','; ?></a><?php endfor; ?></p>
+                     <p class="movie_option"><strong>Category: </strong><?php for($i=0;$i<sizeof($categories);$i++):?><a href="<?php echo base_url().'Products/search/0?category='.$categories[$i]->categories_id.'&platform=&searchterms=' ?>"><?php echo $categories[$i]->categories_name; if($i!=sizeof($categories)-1) echo ','; ?></a><?php endfor; ?></p>
 
-                     <p class="movie_option"><strong>Platform: </strong><?php for($i=0;$i<sizeof($platforms);$i++):?><a href="kari"><?php echo $platforms[$i]->platform_id; if($i!=sizeof($platforms)-1) echo ','; ?></a><?php endfor; ?></p>
+                     <p class="movie_option"><strong>Platform: </strong><?php for($i=0;$i<sizeof($platforms);$i++):?><a href="<?php echo base_url().'Products/search/0?category=&platform='.$platforms[$i]->platform_id.'&searchterms=' ?>"><?php echo $platforms[$i]->platform_name; if($i!=sizeof($platforms)-1) echo ','; ?></a><?php endfor; ?></p>
                      <p class="movie_option"><strong>Release date: </strong><?php echo $product[0]->created_at; ?></p>
                      <p class="movie_option"><strong>Price: </strong><a href="#">$<?php echo number_format((float)$product[0]->price, 2, '.', ''); ?></a></p>
                      <p class="m_4"><?php echo $product[0]->description; ?></p>

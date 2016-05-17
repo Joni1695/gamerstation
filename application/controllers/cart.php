@@ -21,9 +21,8 @@
 					'id' => $this->input->post('item_number'),
 					'qty' => $this->input->post('qty'),
 					'price' => $this->input->post('price'),
-					'name' => $this->input->post('title')
+					'name' => htmlentities($this->input->post('title'))
 			);
-
 			//Insert Into Cart
 			$this->cart->insert($data);
 

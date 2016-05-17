@@ -36,18 +36,18 @@
 </div>
 <div class="box_2">
 <hr class="ourhr">
-<?php for($i=0;$i<8;$i++): ?>
-  <a href="<?php echo base_url().'details/'.$products[$i]->id;?>">
+<?php foreach($products as $p) :?>
+  <a href="<?php echo base_url().'details/'.$p->id;?>">
 <div class="col-md-3 game">
-  <img class="game-img" src="<?php echo base_url().$products[$i]->gameImagePath; ?>">
-  <span class="movie_rating_first"><?php if($products[$i]->rating!==null) echo number_format((float)$products[0]->rating, 2, '.', ''); else echo "No"; ?></span>
-  <div class="price"><span class="price-text">Price </span><span class="game-price"> $<?php echo $products[$i]->price; ?></span></div>
+  <img class="game-img" src="<?php echo base_url().$p->gameImagePath; ?>">
+  <span class="movie_rating_first"><?php if($p->rating!==null) echo number_format((float)$p->rating, 2, '.', ''); else echo "No"; ?></span>
+  <div class="price"><span class="price-text">Price </span><span class="game-price"> $<?php echo $p->price; ?></span></div>
   <div class="game-footer">
-    <?php echo $products[$i]->title; ?>
+    <?php echo $p->title; ?>
   </div>
 </div>
 </a>
-<?php endfor; ?>
+<?php endforeach; ?>
 <div class="clearfix"> </div>
 <br><br><br>
 </div>
