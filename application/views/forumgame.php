@@ -6,6 +6,7 @@
 
       </div>
       <div class="panel-body">
+        <?php if(sizeof($threads)!=0) :?>
         <table class="table table-hover">
           <tbody>
             <?php foreach($threads as $th) :?>
@@ -16,6 +17,12 @@
           <?php endforeach; ?>
           </tbody>
         </table>
+        <?php else : ?>
+          <p>
+            Seems like no body has created any thread so far. You can create your own by clicking the button to the side.
+          </p>
+          <br><br><br><br><br>
+        <?php endif; ?>
       </div>
     </div>
   </div>

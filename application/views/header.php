@@ -132,7 +132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
            <?php if($this->session->userdata('status')=='admin') :?><li><a href="<?php echo base_url().'adminpanel' ?>">Admin Panel</a></li><?php endif; ?>
            <li><a href="<?php echo base_url().'profile' ?>">Profile</a></li>
-           <li><a href="#">My Games</a></li>
+           <li><a href="<?php echo base_url().'mypurchases' ?>">My Purchases</a></li>
            <li role="separator" class="divider"></li>
            <li><a href="<?php echo base_url().'logout' ?>">Log out</a></li>
          </ul>

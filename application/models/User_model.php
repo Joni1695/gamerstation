@@ -53,9 +53,8 @@
 			);
 			return $this->db->where('id',$this->session->userdata('user_id'))->update('users',$data);
 		}
-		public function purchases(){
-			$this->db->where('user_id',$this->session->userdata('user_id'));
-			$result =$this->db->get('orders');
+		public function get_my_orders($id){
+			$result=$this->db->query('SELECT p.title,o.transaction_id,o.qty,o.price,o.adress,o.adress2,o.city,o.state,o.zipcode FROM orders o,products p WHERE p.id=o.product_id AND o.user_id='.$id);
 			return $result->result();
 		}
 		public function search($post){

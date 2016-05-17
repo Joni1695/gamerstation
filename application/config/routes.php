@@ -62,6 +62,7 @@ $route['login']='Users/login';
 $route['logout']='Users/logout';
 $route['signup']='Users/signup';
 $route['profile']='Users/profile';
+$route['mypurchases']='Users/mypurchases';
 
 //Games Stuff
 $route['Products/search']='Products/search';

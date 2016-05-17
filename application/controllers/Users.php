@@ -77,28 +77,40 @@
 		}
 
     public function profile(){
-      $this->form_validation->set_rules('first_name','First Name', 'trim|required');
-			$this->form_validation->set_rules('last_name','Last Name','trim|required');
-			$this->form_validation->set_rules('email','Email','trim|required|valid_email');
-			$this->form_validation->set_rules('username','Username','trim|required|min_length[4]|max_length[16]');
-			$this->form_validation->set_rules('password','Password','trim|required|min_length[4]|max_length[50]');
+      if($this->session->userdata('user_id')){
+        $this->form_validation->set_rules('first_name','First Name', 'trim|required');
+    		$this->form_validation->set_rules('last_name','Last Name','trim|required');
+    		$this->form_validation->set_rules('email','Email','trim|required|valid_email');
+    		$this->form_validation->set_rules('username','Username','trim|required|min_length[4]|max_length[16]');
+    		$this->form_validation->set_rules('password','Password','trim|required|min_length[4]|max_length[50]');
 
-			if($this->form_validation->run() == FALSE){
-        $data['user']=$this->User_model->get_userdata();
-				$data['mainContent'] = 'profile';
-				$this->load->view('main', $data);
-			}else{
-				if($this->User_model->edit()){
-					$this->logout();
-					redirect('main');
-				}
-				else{
+    		if($this->form_validation->run() == FALSE){
           $data['user']=$this->User_model->get_userdata();
-					$this->session->set_flashdata('editfail','The username or email you used already has an account.');
-					$data['mainContent'] = 'profile';
-					$this->load->view('main', $data);
-				}
-			}
+    			$data['mainContent'] = 'profile';
+    			$this->load->view('main', $data);
+    		}else{
+    			if($this->User_model->edit()){
+    				$this->logout();
+    				redirect('main');
+    			}
+    			else{
+            $data['user']=$this->User_model->get_userdata();
+    				$this->session->set_flashdata('editfail','The username or email you used already has an account.');
+    				$data['mainContent'] = 'profile';
+    				$this->load->view('main', $data);
+    			}
+    		}
+      } else redirect('login');
+    }
+    public function mypurchases(){
+      if($this->session->userdata('user_id')){
+        $myorders=$this->User_model->get_my_orders($this->session->userdata('user_id'));
+        $data=array(
+          'mainContent' => 'orders',
+          'orders' => $myorders
+        );
+        $this->load->view('main',$data);
+      } else redirect('login');
     }
 
   }
