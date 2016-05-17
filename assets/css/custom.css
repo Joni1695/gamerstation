@@ -1,0 +1,158 @@
+body {
+  padding-top: 65px;
+  font-family:"Segoe UI";
+  background: #111;
+}
+th{
+  color:#eee;
+  background: rgba(0, 74, 10, 0.6);
+}
+td{
+  color:#ccc;
+  background: rgba(126, 126, 126, 0.25);
+}
+td,th{
+  padding:10px;
+}
+.dropdown ul{
+    background: #096109;
+}
+.dropdown-menu li a{
+  background: #096109;
+  position:relative;
+  top:-18px;
+  padding:10px;
+  display:block;
+}
+.dropdown-menu li input{
+  display:block;
+}
+.dropdown-menu li a:hover{
+  background-color: #107c10;
+  text-decoration: none;
+}
+.divider{
+  background: #107c10;
+  margin-top: 80px;
+  margin-bottom: 20px;
+}
+.cart-block{
+  border:solid #107c10 1px;
+  color:#eee;
+}
+.cart-item{
+  color:#aaa;
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+.cart-item-end{
+  margin-top:10px;
+  margin-bottom: 10px;
+  color:#eee;
+  border-bottom: solid #107c10 1px;
+}
+.navbar{
+  background: #107c10;
+}
+.dropdown ul{
+    background: #096109;
+}
+.dropdown-menu > li > a:hover{
+  background-color: #107c10;
+}
+.navbar a{
+	color:#fff !important;
+}
+.navbar li:hover{
+	background: #096109;
+}
+
+.panel-list a{
+	display:block;
+	color:#666;
+}
+.panel{
+  border:none;
+  background: rgba(17, 17, 17, 0.4);
+  min-height: 100%;
+  margin-bottom: 77px;
+}
+.panel-list .panel-heading h3{
+	padding:4px;
+	font-size:18px;
+}
+
+.panel-heading-green{
+  background: #fff !important;
+  color:#111 !important;
+}
+
+.panel-heading-dark{
+	background:#333333 !important;
+	color:#fff !important;
+}
+
+.game{
+	display:relative;
+  padding-top:40px;
+  padding-bottom:40px;
+}
+
+.game-title{
+	text-align:center;
+  text-shadow: #222 1px 1px;
+	padding:5px;
+  background: #096109;
+	border-bottom:outset #111 2px;
+  border-right:outset #111 2px;
+  border-left:outset #111 2px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+	color:#eee;
+}
+
+.game img{
+	width:100%;
+  border:outset #111 2px;
+}
+
+.game-price{
+	position:absolute;
+	bottom:63px;
+	right:15px;
+	background:#3b7e14;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+	color:#fff;
+	padding:5px;
+	font-size:20px;
+}
+
+.game-add{
+	margin:5px auto 20px auto;
+	width:100%;
+	text-align:center;
+}
+
+.details-price{
+	font-size:25px;
+	margin-bottom:20px;
+}
+
+.details img{
+	width:100%;
+}
+.marketing{
+  height:35px;
+}
+.description{
+  color:#abc;
+  font-size: 15px;
+}
+.title{
+  font-size: 50px;
+  color:#dfe6ec;
+}
+.img-responsive{
+  border:outset #107c10 2px;
+}
