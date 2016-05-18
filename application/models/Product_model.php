@@ -400,5 +400,17 @@
       $this->db->where('id',$id)->delete('threads');
       $this->db->where('id',$userid)->update('users',array('banned' => 'Y'));
     }
+    public function get_most_sold(){
+      $result=$this->db->query('SELECT SUM(o.qty) AS Total_sale,(SELECT products.title FROM products WHERE products.id=o.product_id) AS Title FROM orders o GROUP BY o.product_id ORDER BY Total_sale DESC LIMIT 10');
+      return $result->result();
+    }
+    public function get_user_most_sold(){
+      $result=$this->db->query('SELECT SUM(o.qty) AS Total_sale,(SELECT users.username FROM users WHERE users.id=o.user_id) AS Username FROM orders o GROUP BY o.transaction_id ORDER BY Total_sale DESC LIMIT 10');
+      return $result->result();
+    }
+    public function get_biggest_purchases(){
+      $result=$this->db->query('SELECT SUM(o.price) AS Total_value,(SELECT users.username FROM users WHERE users.id=o.user_id) AS Username FROM orders o GROUP BY o.transaction_id ORDER BY Total_value DESC LIMIT 10');
+      return $result->result();
+    }
   }
 ?>

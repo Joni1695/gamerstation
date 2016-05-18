@@ -7,6 +7,33 @@ html {
 body {
   margin: 0;
 }
+.mypanel{
+	background: #107c10 !important;
+	color: #FFF !important;
+}
+.mytable1 th{
+  background-color: rgb(49, 149, 19);
+  text-align: center;
+  color:white;
+  border-bottom: 2px solid #eee !important;
+}
+.mytable1 td{
+  border:1px solid gray;
+  text-align: center;
+}
+.mytable1 tr:nth-child(even){
+  background-color: #eee;
+  color:black;
+}
+.mytable1 tr:nth-child(odd){
+  background-color: #c8c6c6;
+  color:black;
+}
+.mytable1 tr:hover{
+  background-color: white;
+  color:#107c10;
+  cursor:pointer;
+}
 .order_drop{
   font-size: 18px;
 }

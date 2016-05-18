@@ -5,8 +5,14 @@
       if($this->session->userdata('status')!='admin') show_404();
     }
     public function index(){
+      $mostorders=$this->Product_model->get_most_sold();
+      $userorders=$this->Product_model->get_user_most_sold();
+      $purchases=$this->Product_model->get_biggest_purchases();
       $data=array(
-        'active' => 'admin_dashboard'
+        'active' => 'admin_dashboard',
+        'mostsold' => $mostorders,
+        'usersold' => $userorders,
+        'purchases' => $purchases
       );
       $this->load->view('adminMain',$data);
     }

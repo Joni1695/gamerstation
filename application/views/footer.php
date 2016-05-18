@@ -17,19 +17,19 @@
 			 </div>
 			 <div class="footer_box">
 			  <div class="col_1_of_3 span_1_of_3">
-					<h3>Categories</h3>
+					<h3>Why us?</h3>
 					<ul class="first">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Sport</a></li>
-						<li><a href="#">Adventure</a></li>
+						<li><a href="#">Fast</a></li>
+						<li><a href="#">Reliable</a></li>
+						<li><a href="#">Cheap</a></li>
 					</ul>
 		     </div>
 		     <div class="col_1_of_3 span_1_of_3">
 					<h3>Information</h3>
 					<ul class="first">
-						<li><a href="#">New Games</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">About Us</a></li>
+						<li><a href="<?php echo base_url().'Products/search/0?category=&platform=&order=0&searchterm='; ?>">New Games</a></li>
+						<li><a href="<?php echo base_url().'Products/forum' ?>">Forum</a></li>
+						<li><a href="#">Terms and Service</a></li>
 					</ul>
 		     </div>
 		     <div class="col_1_of_3 span_1_of_3">
