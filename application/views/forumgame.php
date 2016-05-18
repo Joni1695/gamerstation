@@ -60,7 +60,8 @@
     if($('.title').val().trim()!='' && $('.desc').val().trim()!='') $.post('<?php echo base_url(); ?>createThread',{
       thread_title: $('.title').val().trim(),
       thread_desc: $('.desc').val().trim(),
-      game_id: <?php echo $product[0]->id; ?>
+      game_id: <?php echo $product[0]->id; ?>,
+      <?php echo echocsrf_js();?>
     },function(data){
       alert('Thread was succesfully added.');
       location.reload();

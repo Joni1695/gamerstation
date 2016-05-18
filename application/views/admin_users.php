@@ -70,7 +70,7 @@
 <script type="text/javascript">
   $('.gamerow').click(function(){
     var id=$(this).data('id');
-    $.post('<?php echo base_url(); ?>adminService/getUserData',{user_id: id},function(data){
+    $.post('<?php echo base_url(); ?>adminService/getUserData',{user_id: id,<?php echo echocsrf_js();?>},function(data){
       var response=$.parseJSON(data);
       $('.username').text(response.user[0].username);
       if(response.user[0].banned=='N') $('.ban').text('Ban');
@@ -81,12 +81,12 @@
     $('#UserModal').modal('toggle');
   });
   $('.ban').click(function(){
-    $.post('<?php echo base_url(); ?>adminService/banUser',{user_id: $(this).data('id')},function(data){
+    $.post('<?php echo base_url(); ?>adminService/banUser',{user_id: $(this).data('id'),<?php echo echocsrf_js();?>},function(data){
       document.location.href="<?php echo base_url().'adminpanel/users'; ?>";
     });
   });
   $('.changestatus').click(function(){
-    $.post('<?php echo base_url(); ?>adminService/changeUser',{user_id: $(this).data('id')},function(data){
+    $.post('<?php echo base_url(); ?>adminService/changeUser',{user_id: $(this).data('id'),<?php echo echocsrf_js();?>},function(data){
       document.location.href="<?php echo base_url().'adminpanel/users'; ?>";
     });
   });
@@ -101,7 +101,7 @@
   $('#search').autocomplete({
     source : gamearray,
     select : function(event,ui){
-      $.post('<?php echo base_url(); ?>adminService/getUserData',{user_id: ui.item.value},function(data){
+      $.post('<?php echo base_url(); ?>adminService/getUserData',{user_id: ui.item.value,<?php echo echocsrf_js(); ?>},function(data){
         var response=$.parseJSON(data);
         $('.username').text(response.user[0].username);
         if(response.user[0].banned=='N') $('.ban').text('Ban');

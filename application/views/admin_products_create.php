@@ -31,6 +31,7 @@
 <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
 <div class="col-md-12">
   <form id="formaime" action="<?php echo base_url(); ?>adminpanel/createGame" enctype="multipart/form-data" method="post">
+  <?php echo echocsrf_html(); ?>
   <div class="col-md-6">
     <div class="form-block">
       <label for="game_name">Game Name:</label>

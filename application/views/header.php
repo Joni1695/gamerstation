@@ -48,7 +48,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $.post('<?php echo base_url(); ?>postFeedback',{
           name: $('#fb_name').val().trim(),
           contact: $('#fb_contact').val().trim(),
-          message: $('#fb_message').val().trim()
+          message: $('#fb_message').val().trim(),
+          <?php echo echocsrf_js(); ?>
         },function(data){
           var response= $.parseJSON(data);
           if(response.type='success'){
@@ -101,6 +102,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
               <form action="<?php echo base_url();?>cart/update" method="POST">
+                <?php echo echocsrf_html(); ?>
                 <table class="table">
                   <li><thead class="cart-thead"><tr><th>Quantity</th><th colspan="9">Name</th><th>Price</th></tr></thead></li>
                   <tbody class="cart-tbody">

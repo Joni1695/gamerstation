@@ -1,6 +1,7 @@
 <?php echo validation_errors('<div class="alert alert-danger">','</div>'); ?>
 <div class="content">
   <form action="" method="post">
+    <?php echo echocsrf_html();?>
     <div class="col-md-6">
       <label for="title">Title:</label> <input type="text" id="title" name="title" value="<?php echo $thread[0]->title;?>">
     </div>

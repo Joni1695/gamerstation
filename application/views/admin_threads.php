@@ -55,17 +55,17 @@
 <script type="text/javascript">
   $(document).ready(function(){
     $('.reset').click(function(){
-      $.post('<?php echo base_url(); ?>adminService/resetReport',{thread_id: $(this).data('id')},function(data){
+      $.post('<?php echo base_url(); ?>adminService/resetReport',{thread_id: $(this).data('id'),<?php echo echocsrf_js(); ?>},function(data){
         document.location.href=document.location.href;
       });
     });
     $('.del').click(function(){
-      $.post('<?php echo base_url(); ?>adminService/deleteThread',{thread_id: $(this).data('id')},function(data){
+      $.post('<?php echo base_url(); ?>adminService/deleteThread',{thread_id: $(this).data('id'),<?php echo echocsrf_js(); ?>},function(data){
         document.location.href=document.location.href;
       });
     });
     $('.delban').click(function(){
-      $.post('<?php echo base_url(); ?>adminService/delbanThread',{thread_id: $(this).data('id'),user_id: $(this).data('userid')},function(data){
+      $.post('<?php echo base_url(); ?>adminService/delbanThread',{thread_id: $(this).data('id'),user_id: $(this).data('userid'),<?php echo echocsrf_js(); ?>},function(data){
         document.location.href=document.location.href;
       });
     });

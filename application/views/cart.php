@@ -1,6 +1,7 @@
 <?php if($this->cart->contents()) :?>
 <div class="content">
   <form action="<?php echo base_url();?>cart/process" method="POST">
+  <?php echo echocsrf_html();?>
   <h2>Shopping Cart</h2>
   <table class="table table-striped table-hover mytable">
     <thead>

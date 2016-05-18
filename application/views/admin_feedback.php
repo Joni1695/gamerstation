@@ -21,7 +21,7 @@
   $(document).ready(function(){
     $('.delete_feedback').click(function(){
       var ori=$(this);
-      $.post('<?php echo base_url(); ?>adminService/delete',{feedback_id: $(this).data('id')},function(data){
+      $.post('<?php echo base_url(); ?>adminService/delete',{feedback_id: $(this).data('id'),<?php echo echocsrf_js(); ?>},function(data){
         var response=$.parseJSON(data);
         var string='<div class="alert alert-';
         if(response.type=='success') string=string+'success">'+response.msg+'</div>';

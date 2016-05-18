@@ -47,9 +47,9 @@
       e.stopPropagation();
     });
     $('.report').click(function(){
-      $.post('<?php echo base_url(); ?>reportThread',{thread_id: $(this).data('id')},function(data){});
+      $.post('<?php echo base_url(); ?>reportThread',{thread_id: $(this).data('id'),<?php echo echocsrf_js();?>},function(data){});
     });
-    $('.edit').click(function(e){
+    $('.edited').click(function(e){
       document.location.href="<?php echo base_url().'editThread/'; ?>"+$(this).data('id');
       e.stopPropagation();
     });

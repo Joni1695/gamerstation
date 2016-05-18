@@ -7,6 +7,7 @@
 <div class="content">
      <div class="register">
   <form action="<?php echo base_url().'profile' ?>" method="POST">
+    <?php echo echocsrf_html();?>
  <div class="register-top-grid">
   <h3>Personal Information</h3>
    <div>

@@ -43,6 +43,7 @@
                      <p class="movie_option"><strong>Price: </strong><a href="#">$<?php echo number_format((float)$product[0]->price, 2, '.', ''); ?></a></p>
                      <p class="m_4"><?php echo $product[0]->description; ?></p>
                      <form action="<?php echo base_url();?>cart/add" method="POST">
+                       <?php echo echocsrf_html();?>
                        <div class="">
                          QTY: <input type="text" name="qty" value="1">
                          <input name="item_number" type="hidden" value="<?php echo $product[0]->id;?>"/>
@@ -57,6 +58,7 @@
                    <h2>Write Review</h2>
                    <?php if($this->session->userdata('username')): ?>
                <form method="post" id="myform" action="<?php echo base_url().'postReview/'.$product[0]->id; ?>">
+                 <?php echo echocsrf_html();?>
                  <div class="text">
                     <textarea name="text-message"></textarea>
                  </div>
@@ -99,7 +101,7 @@
 </div>
 <script type="text/javascript">
 $('input[name=stars-rating]').change(function(){
-  $.post('<?php echo base_url(); ?>/rateGame',{rating: $(this).val(),game_id: <?php echo $product[0]->id; ?>},function(data){
+  $.post('<?php echo base_url(); ?>/rateGame',{rating: $(this).val(),game_id: <?php echo $product[0]->id; ?>,<?php echo echocsrf_js(); ?>},function(data){
 
   },'json');
 });

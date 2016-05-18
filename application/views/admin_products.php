@@ -119,6 +119,7 @@
             </div>
             <div class="modal-footer">
                 <form id="formaime" action="<?php echo base_url(); ?>adminpanel/delUpGame" enctype="multipart/form-data" method="post">
+                    <?php echo echocsrf_html(); ?>
                     <input type="hidden" id="game_id" name="id" value="">
                     <input type="hidden" id="game_name" name="name" value="">
                     <input type="hidden" id="game_desc" name="desc" value="">
@@ -139,7 +140,7 @@
 <script type="text/javascript">
   $(document).ready(function(){
     $('.gamerow').click(function(){
-      $.post('<?php echo base_url(); ?>adminService/getGameData',{game_id : $(this).data('id')},function(data){
+      $.post('<?php echo base_url(); ?>adminService/getGameData',{game_id : $(this).data('id'),<?php echo echocsrf_js(); ?>},function(data){
         var response=$.parseJSON(data);
         console.log(response);
         if(response.type=='success'){
@@ -191,7 +192,7 @@
     $('#search').autocomplete({
       source : gamearray,
       select : function(event,ui){
-        $.post('<?php echo base_url(); ?>adminService/getGameData',{game_id : ui.item.value},function(data){
+        $.post('<?php echo base_url(); ?>adminService/getGameData',{game_id : ui.item.value,<?php echo echocsrf_js(); ?>},function(data){
           var response=$.parseJSON(data);
           console.log(response);
           if(response.type=='success'){

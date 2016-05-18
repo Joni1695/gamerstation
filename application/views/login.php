@@ -18,6 +18,7 @@
  <div class="col-md-6 login-right">
   <h3>Login</h3>
 <form action="<?php echo base_url().'login' ?>" method="POST">
+  <?php echo echocsrf_html(); ?>
   <div>
   <span>Username<label>*</label></span>
   <input class="inputlog" type="text" name="username">

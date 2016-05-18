@@ -35,4 +35,20 @@
     else if($difference<72576000) return ''.floor($difference/2419200).' months ago';
     else if($difference>72576000) return ''.floor($difference/72576000).' years ago';
   }
+  function echocsrf_html(){
+    $CI=get_instance();
+    return '<input type="hidden" name="'.$CI->security->get_csrf_token_name().'" value="'.$CI->security->get_csrf_hash().'">';
+  }
+  function echocsrf_js(){
+    $CI=get_instance();
+    return $CI->security->get_csrf_token_name().': \''.$CI->security->get_csrf_hash().'\'';
+  }
+  function csrfname(){
+    $CI=get_instance();
+    return $CI->security->get_csrf_token_name();
+  }
+  function csrfhash(){
+    $CI=get_instance();
+    return '\''.$CI->security->get_csrf_hash().'\'';
+  }
 ?>

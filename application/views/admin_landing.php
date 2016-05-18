@@ -36,6 +36,7 @@
             </div>
             <div class="modal-body">
               <form class="myform" action="<?php echo base_url(); ?>adminpanel/changeFirstPage" method="post">
+                <?php echo echocsrf_html(); ?>
                 <input type="hidden" name="oldValue">
                 <select name="newValue" class="myselect">
                   <?php $i=1; foreach($changeproducts as $p) :?>

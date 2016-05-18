@@ -2,10 +2,7 @@
 <div class="callbacks_container">
 <ul class="rslides" id="slider">
   <?php foreach($first as $f) :?>
-  <li><img src="<?php echo base_url().$f->gameImagePath; ?>" class="img-responsive" alt=""/>
-    <div class="button">
-    <a href="#" class="hvr-shutter-out-horizontal">Buy Now</a>
-  </div>
+  <li><a href="<?php echo base_url().'details/'.$f->product_id; ?>"><img src="<?php echo base_url().$f->gameImagePath; ?>" class="img-responsive" alt=""/></a>
   </li>
 <?php endforeach; ?>
 </ul>
