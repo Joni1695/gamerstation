@@ -4,7 +4,7 @@
                    <div class="grid images_3_of_2">
                      <div class="movie_image">
                            <span class="movie_rating"><?php if($product[0]->rating!==null) echo number_format((float)$product[0]->rating, 2, '.', ''); else echo "No"; ?></span>
-                           <img src="<?php echo base_url().$product[0]->gameImagePath; ?>" class="img-responsive" alt=""/>
+                           <img src="<?php echo base_url().$product[0]->gameImagePath; ?>" class="img-responsive imagetrailer" alt=""/>
                        </div>
                        <div class="movie_rate">
                          <div class="rating_desc"><?php if($this->session->userdata('username')) :?>
@@ -99,6 +99,16 @@
              </div>
       </div>
 </div>
+<div class="modal fade" id="TrailerModal" tabindex="-1" role="dialog" aria-labelledby="GameModal" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button><br>
+              <?php echo $product[0]->trailer_video; ?>
+            </div>
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
 $('input[name=stars-rating]').change(function(){
   $.post('<?php echo base_url(); ?>/rateGame',{rating: $(this).val(),game_id: <?php echo $product[0]->id; ?>,<?php echo echocsrf_js(); ?>},function(data){
@@ -118,4 +128,8 @@ $('#myform').submit(function(e){
     e.preventDefault();
   }
 });
+$('.imagetrailer').click(function(){
+  $('#TrailerModal').modal('toggle');
+}
+);
 </script>

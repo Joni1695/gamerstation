@@ -8,6 +8,17 @@ h4, h5, h6,
 h1, h2, h3 {margin-top: 0;}
 ul, ol {margin: 0;}
 p {margin: 0;}
+#TrailerModal .modal-content{
+	background: rgba(255, 0, 0, 0);
+	border:0px;
+	box-shadow: 0px 0px 0px rgba(255, 0, 0, 0)  !important;
+	-webkit-box-shadow: 0px 0px 0px rgba(255, 0, 0, 0) !important;
+}
+#TrailerModal .close{
+	color:rgb(255, 0, 0);
+	font-size: 30px!important;
+	opacity:.5;
+}
 .specialbutton{
 	background: #107c10;
 	color: #FFF;
